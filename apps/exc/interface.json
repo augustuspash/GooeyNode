@@ -1,0 +1,59 @@
+{
+    "name": "Exc Test",
+    "description": "Exc jar test",
+    "uri": "texc",
+    "jar": "excgooey.jar",
+    "gui": [
+        [
+            {
+                "type": "text",
+                "paramid": "firstname",
+                "name": "First Name"
+            },
+            {
+                "type": "text",
+                "paramid": "lastname",
+                "name": "Last Name"
+            },
+            {
+                "type": "date",
+                "paramid": "birthday",
+                "name": "Birthday"
+            }
+        ], 
+        [
+            {
+                "type": "number",
+                "paramid": "hours",
+                "name": "Start hour"
+            },
+            {
+                "type": "number",
+                "paramid": "minutes",
+                "name": "Start minute"
+            },
+            {
+                "type": "number",
+                "paramid": "seconds",
+                "name": "Start second"
+            },
+            {
+                "type": "text",
+                "paramid": "input",
+                "name": "Input FIle"
+            },
+            {
+                "type": "text",
+                "paramid": "output",
+                "name": "Output FIle"
+            },
+            {
+                "type": "text",
+                "paramid": "output",
+                "name": "Duration"
+            }
+        ]
+    ],
+    "html": "",
+    "script": ""
+}

@@ -1,0 +1,27 @@
+{
+    "name": "Plugin Test",
+    "description": "Plugin jar test",
+    "uri": "tplug",
+    "jar": "pluggooey.jar",
+    "gui": [
+        [
+            {
+                "type": "text",
+                "paramid": "firstname",
+                "name": "First Name"
+            },
+            {
+                "type": "text",
+                "paramid": "lastname",
+                "name": "Last Name"
+            },
+            {
+                "type": "date",
+                "paramid": "birthday",
+                "name": "Birthday"
+            }
+        ]
+    ],
+    "html": "",
+    "script": ""
+}

@@ -1,0 +1,34 @@
+{
+    "exc": "echo",
+    "param":[
+        [
+            {
+                "id": "firstname",
+                "exc": "/j",
+                "req": true
+            },
+            {
+                "id": "lastname",
+                "exc": "",
+                "req": true
+            },
+            {
+                "id": "",
+                "exc": "aa",
+                "req": true
+            },
+            {
+                "id": "birthday",
+                "exc": "-a",
+                "req": true
+            }
+        ], 
+        [
+            {
+                "id":"helloe",
+                "exc": "",
+                "req":true
+            }
+        ]
+    ]
+}
