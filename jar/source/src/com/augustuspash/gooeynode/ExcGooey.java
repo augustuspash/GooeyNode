@@ -51,7 +51,7 @@ public class ExcGooey {
 					}
 					for (int i = 0; i < param.length; i++) {
 						if (param[i].req && param[i].id.equals("") || json.has(param[i].id)) {
-							cmd += param[i].exc + " " + (param[i].id.equals("") ? "" : json.getString(param[i].id));
+							cmd += param[i].exc + " " + (param[i].id.equals("") ? "" : json.getString(param[i].id)) + " ";
 						} else {
 							throw new Exception("missing id");
 						}

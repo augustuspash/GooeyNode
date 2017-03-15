@@ -50,8 +50,11 @@ for (var i = 0; i < dirs.length; i++) {
                 var p = serverport + 1;
                 serverport ++;
                 var cmd = 'java -jar "' + __dirname + '/jar/' + config.interfaces[tmp].jar + '" "' + __dirname + '/apps/' + config.interfaces[tmp].app + '/config.json" ' + p;
-                exec(cmd, function(error, stdout, stderr) {
-                    console.log(error);
+                var child = exec(cmd, function(error, stdout, stderr) {
+                    console.log(error + "  \n" + stdout);
+                });
+                child.stdout.on('data', function(data) {
+                    console.log(data.toString()); 
                 });
                 setTimeout(function() {
                     servers[config.interfaces[tmp].app] = p;
@@ -231,7 +234,7 @@ function createScript(pInfo) {
         script += '$("#run' + i + '").click(function (e) {'+
                 'var data = { "i": ' + i + '};';
         for (var j = 0; j < pInfo.gui[i].length; j++) {
-            script += 'data["' + pInfo.gui[i][j].paramid + '"] = $("#' + pInfo.gui[i][j].paramid +'").val();';
+            script += 'data["' + pInfo.gui[i][j].paramid + '"] = ' + (types.js[pInfo.gui[i][j].type] != undefined ? types.js[pInfo.gui[i][j].type](pInfo.gui[i][j].paramid) : '$("#' + pInfo.gui[i][j].paramid +'").val();');
         }
         script += '$.post("/' + pInfo.uri + '", JSON.stringify(data), function (d) {alert("Sent");});';
         script += '});';
@@ -245,7 +248,7 @@ function createPage(pInfo) {
     for (var i = 0; i < pInfo.gui.length; i++) {
         var gui = "";
         for (var j = 0; j < pInfo.gui[i].length; j++) {
-            gui += createInterface(pInfo.gui[i][j].type, pInfo.gui[i][j].paramid, pInfo.gui[i][j].name);
+            gui += createInterface(pInfo.gui[i][j].type, pInfo.gui[i][j].paramid, pInfo.gui[i][j].name, pInfo.gui[i][j].values);
         }
         page += createPageSection(gui + createRun(i));
     }
@@ -273,9 +276,9 @@ function createPageSection(inner) {
     return '<div class="well" style="width:100%;">' + inner + '</div>';       
 }
 
-function createInterface(type, paramid, name) {
-    if (types[type]) {
-        return types[type](type, paramid, name);
+function createInterface(type, paramid, name, values) {
+    if (types.html[type]) {
+        return types.html[type](type, paramid, name, values);
     } else {
         return '<div class="form-group"><label>'+name+'</label> <input class="form-control" id="' + paramid + '" type="' + type + '" /></div>';
     }

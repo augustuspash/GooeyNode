@@ -1,0 +1,12 @@
+{
+  "name": "gooey-node",
+  "version": "0.0.0",
+  "description": "GooeyNode",
+  "main": "app.js",
+  "author": {
+    "name": "augustuspash"
+  },
+  "dependencies": {
+    "httpdispatcher": "^2.0.1"
+  }
+}

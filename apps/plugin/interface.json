@@ -3,7 +3,7 @@
     "description": "Plugin jar test",
     "uri": "tplug",
     "jar": "pluggooey.jar",
-    "gui": [
+    "gui": [ 
         [
             {
                 "type": "text",
